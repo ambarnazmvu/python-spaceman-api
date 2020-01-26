@@ -28,13 +28,20 @@ class GameModelTests( TestCase ):
     def test_word_is_capitalized( self ):
         testword = "testword"
         game = Game (word = testword )
-        self.assertEquals (testword.upper(), game.word )
+        self.assertEqual (testword.upper(), game.word )
 
 
 
     ### guessed_word_state field
-    ### TODO
-
+    def test_guessed_word_state_is_same_length_as_word (self ):
+        testword = "apple"
+        game = Game (word = testword)
+        self.assertEqual ( len (testword), len (game.guessed_word_state))
+    
+    def test_guessed_word_state_is_only_empty_strings (self ):
+        testword = "apple"
+        game = Game ( word = testword )
+        self.assertEqual ( ['','','','',''], game.guessed_word_state )
 
     
 
